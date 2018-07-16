@@ -1,17 +1,18 @@
 function addMysqlConnectioinInfo() {
 
-    var name = $("#db_source_add_info.name").val();
-    var mysql_ip = $("#db_source_add_info.mysql_ip").val();
-    var mysql_port = $("#db_source_add_info.mysql_port").val();
-    var mysql_pass = $("#db_source_add_info.mysql_pass").val();
-    var name = $("#db_source_add_info.name").innerText;
+    var name = $("#db_source_add_info_name").val();
+    var mysql_ip = $("#db_source_add_info_mysql_ip").val();
+    var mysql_port = $("#db_source_add_info_mysql_port").val();
+    var mysql_pass = $("#db_source_add_info_mysql_pass").val();
+    var name = $("#db_source_add_info_name").innerText;
+    var save_info = $("#db_source_add_model .checkbox input[type=checkbox]:checked");
 
     if (!isIp(mysql_ip) || !isNum(mysql_port)) return;
     if (isEmptyStr(name)) {
         name = mysql_ip + "_" + mysql_port;
     }
-    var data = {"name": name, "ip": mysql_ip, "port": mysql_port, "pass": mysql_pass};
-    alert(data);
+    var data = {"name": name, "ip": mysql_ip, "port": mysql_port, "pass": mysql_pass, "saveInfo": save_info.length};
+    alert(JSON.stringify(data));
     $("#db_source_add_model").modal('toggle');
 }
 
@@ -70,7 +71,8 @@ function validatePort(e) {
 }
 
 function isEmptyStr(str) {
-
+    var reg = /^[ ]*$/;
+    return str == undefined || str == null || str == "" || ret.test(str);
 }
 
 function nullShowError(e) {
