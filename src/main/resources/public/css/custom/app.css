@@ -1,0 +1,156 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header, section, footer, aside, nav, article, figure{
+    display: block;
+}
+html,body{
+    background-color: rgba(48, 68, 58, 0.81);
+    height: 100%;
+}
+header{
+    margin-bottom: 0px;
+}
+
+header .title{
+    font-size: 28px;
+    margin-right: 80px;
+    margin-left: 50px;
+    padding-left: 30px;
+}
+
+#content {
+    margin: -10px auto 5px;
+    background-color: snow;
+    width: 95%;
+    height: 84%;
+    display: block;
+}
+
+#content .db_source{
+    position: relative;
+    float: left;
+    width: 25%;
+    border-right: 3px groove #9d9d9d ;
+    height: 100%;
+    padding: 20px;
+/*    background-color: #1b6d85;*/
+}
+
+#content .db_source .db_source_list{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#content .db_source .db_source_list .panel-info {
+    height: 96%;
+}
+
+/*数据源列表中的名称的修饰*/
+.db_source_item a {
+    text-decoration: none;
+}
+.db_source_item a:hover{
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+/*数据源选项*/
+.source_option {
+    border: none;
+}
+
+#content .db_manage{
+    width: 75%;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+
+#content .db_manage .db_manage_header {
+    height: 3%;
+    width: 100%;
+    background-color: #5e5e5e;
+}
+
+#content .db_manage .db_manage_content {
+    width: 100%;
+    height: 93%;
+}
+
+#content .db_manage .db_manage_content .db_tables {
+    width: 25%;
+    height: 100%;
+    border-right: 2px double #999595;
+    position: relative;
+    float: left;
+}
+
+#content .db_manage .db_manage_content .db_tables .panel-info {
+    height: 100%;
+    overflow: auto;
+}
+
+#content .db_manage .db_manage_content .db_tables .panel-info .panel-default {
+    border: none;
+}
+#content .db_manage .db_manage_content .db_tables .panel-info .panel-heading {
+    background-color: inherit;
+}
+
+#content .db_manage .db_manage_content .db_manage_content_right {
+    width: 75%;
+    height: 100%;
+    float: right;
+    background-color: snow;
+}
+#content .db_manage .db_manage_content .db_manage_content_right .db_do_nothing {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#content .db_manage .db_manage_content .db_manage_content_right .db_interface {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#content .db_manage .db_manage_content .db_manage_content_right .db_interface .db_interface_header {
+    width: 100%;
+    height: 5%;
+}
+
+#content .db_manage .db_manage_content .db_manage_content_right .db_command {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#content .db_manage .db_manage_footer {
+    width: 100%;
+    height: 4%;
+    background-color: #999999;
+    padding-left: 10%;
+    text-align: left;
+    font-weight: lighter;
+    color: #ecf9ee;
+    float: bottom;
+    margin-bottom: 0px;
+
+}
+
+footer{
+    color: slategray;
+}
+footer .copy-rigth {
+    text-align: center;
+    margin-bottom: 1%;
+    width: 100%;
+    display: inline-block;
+    padding-top: 2px;
+}

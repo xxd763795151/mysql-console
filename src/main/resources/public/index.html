@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <title>mysql-console</title>
+
+    <script src="js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/custom/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom/app.css">
+
+
+</head>
+<body>
+
+
+<header>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand title" href="#">mysql-console</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            数据源管理<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#db_source_add_model">添加</a>
+                            </li>
+
+
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            数据库用户<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">列表</a></li>
+                            <li><a href="#">添加</a></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-lock"></span> 127.0.0.1_3306</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div id="content">
+    <div class="db_source">
+        <div class="db_source_list">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">数据库地址列表</h3>
+                </div>
+                <div class="panel-body db_source_item">
+                    <div class="panel-group" id="db_source_list_group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#db_source_list_group"
+                                       href="#collapseOne">
+                                        郑州测试环境
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse collapse">
+                                <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+                                <div class="panel-body">
+                                    <a href="#" class="list-group-item source_option">打开连接</a>
+                                    <a href="#" class="list-group-item source_option">关闭连接</a>
+                                    <a href="#" class="list-group-item source_option">删除连接</a>
+                                    <a href="#" class="list-group-item source_option">连接属性</a>
+                                    <a href="#" class="list-group-item source_option">新建数据库</a>
+                                    <a href="#" class="list-group-item source_option">命令行界面</a>
+                                    <a href="#" class="list-group-item source_option">运行sql文件</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#db_source_list_group"
+                                       href="#collapseTwo">
+                                        mysql数据库
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <a href="#" class="list-group-item source_option">打开连接</a>
+                                    <a href="#" class="list-group-item source_option">关闭连接</a>
+                                    <a href="#" class="list-group-item source_option">删除连接</a>
+                                    <a href="#" class="list-group-item source_option">连接属性</a>
+                                    <a href="#" class="list-group-item source_option">新建数据库</a>
+                                    <a href="#" class="list-group-item source_option">命令行界面</a>
+                                    <a href="#" class="list-group-item source_option">运行sql文件</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#db_source_list_group"
+                                       href="#collapseThree">
+                                        127.0.0.1_3309
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <a href="#" class="list-group-item source_option">打开连接</a>
+                                    <a href="#" class="list-group-item source_option">关闭连接</a>
+                                    <a href="#" class="list-group-item source_option">删除连接</a>
+                                    <a href="#" class="list-group-item source_option">连接属性</a>
+                                    <a href="#" class="list-group-item source_option">新建数据库</a>
+                                    <a href="#" class="list-group-item source_option">命令行界面</a>
+                                    <a href="#" class="list-group-item source_option">运行sql文件</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="db_manage">
+        <div class="db_manage_header">
+        </div>
+        <div class="db_manage_content">
+            <div class="db_tables">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">所有表</h3>
+                    </div>
+                    <div class="panel-body db_source_item">
+                        <div class="panel-group" id="db_tables_group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#db_tables_group"
+                                           href="#collapseFour">
+                                            db_name
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse collapse">
+                                    <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+                                    <div class="panel-body">
+                                        <a href="#" class="list-group-item source_option">打开表</a>
+                                        <a href="#" class="list-group-item source_option">设计表</a>
+                                        <a href="#" class="list-group-item source_option">新建表</a>
+                                        <a href="#" class="list-group-item source_option">删除表</a>
+                                        <a href="#" class="list-group-item source_option">清空表</a>
+                                        <a href="#" class="list-group-item source_option">转储sql文件</a>
+                                        <a href="#" class="list-group-item source_option">运行sql文件</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#db_tables_group"
+                                           href="#collapseFive">
+                                            db_user
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <a href="#" class="list-group-item source_option">打开表</a>
+                                        <a href="#" class="list-group-item source_option">设计表</a>
+                                        <a href="#" class="list-group-item source_option">新建表</a>
+                                        <a href="#" class="list-group-item source_option">删除表</a>
+                                        <a href="#" class="list-group-item source_option">清空表</a>
+                                        <a href="#" class="list-group-item source_option">转储sql文件</a>
+                                        <a href="#" class="list-group-item source_option">运行sql文件</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="db_manage_content_right">
+                <div class="db_do_nothing">
+
+                    <h2>
+                        把手从桌子下拿上来吧，开始干事了！！！
+                    </h2>
+                </div>
+                <div class="db_interface">
+                    <div class="db_interface_header">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="#">SVN</a></li>
+                            <li><a href="#">iOS</a></li>
+                            <li><a href="#">VB.Net</a></li>
+                            <li><a href="#">Java</a></li>
+                            <li><a href="#">PHP</a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="db_interface_content">
+
+                    </div>
+
+
+                </div>
+                <div class="db_command">
+
+                </div>
+            </div>
+        </div>
+        <div class="db_manage_footer">
+            共33行受影响
+        </div>
+
+    </div>
+    <div class="db_command" style="visibility: hidden">
+
+    </div>
+</div>
+<footer>
+    <span class="copy-rigth">
+            &copy;&nbsp;&nbsp;www.xiaodonggg.top
+    </span>
+</footer>
+
+<!-- 数据源管理添加的模态框（Modal） -->
+<div class="modal fade" id="db_source_add_model" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加mysql连接信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="db_source_add_info">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="db_source_add_info.mysql_ip" class="col-sm-2 control-label">ip</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="db_source_add_info.mysql_ip" placeholder="请输入mysql主机ip,e.g. 127.0.0.1" onblur="validateIp(this);" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="db_source_add_info.mysql_port" class="col-sm-2 control-label">端口</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="db_source_add_info.mysql_port" value="3306" placeholder="请输入端口" onblur="validatePort(this);">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="db_source_add_info.mysql_pass" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="db_source_add_info.mysql_pass" placeholder="请输入密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="db_source_add_info.name" class="col-sm-2 control-label text-muted">名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="db_source_add_info.name" placeholder="请输入名称，为空，默认ip_port">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">保留信息
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="addMysqlConnectioinInfo();">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+</body>
+</html>
