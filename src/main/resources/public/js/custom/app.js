@@ -12,8 +12,20 @@ function addMysqlConnectioinInfo() {
         name = mysql_ip + "_" + mysql_port;
     }
     var data = {"name": name, "ip": mysql_ip, "port": mysql_port, "pass": mysql_pass, "saveInfo": save_info.length};
-    alert(JSON.stringify(data));
-    $("#db_source_add_model").modal('toggle');
+    //alert(JSON.stringify(data));
+    $.ajax({
+        url: "/dbsource/save/info",
+        type: "post",
+        contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+        data: data,
+        success: function (response) {
+            alert("添加成功");
+            $("#db_source_add_model").modal('toggle');
+        },
+        error: function (response) {
+            alert("error:" + response.responseText);
+        }
+    })
 }
 
 /**
