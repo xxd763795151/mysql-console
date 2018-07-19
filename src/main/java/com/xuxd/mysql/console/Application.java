@@ -1,5 +1,6 @@
 package com.xuxd.mysql.console;
 
+import com.xuxd.mysql.console.annotation.EnableEhcache;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -11,7 +12,8 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 
 @SpringBootApplication
-@EnableCaching
+//@EnableCaching
+@EnableEhcache
 public class Application {
 
     public static void main(String[] args) {
