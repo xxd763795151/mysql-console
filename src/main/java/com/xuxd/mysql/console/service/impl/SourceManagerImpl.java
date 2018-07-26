@@ -29,6 +29,7 @@ public class SourceManagerImpl implements ISourceManager {
         if (result != null) {
             throw new OperationFail("保存失败，cause:可能该名称已存在");
         }
-        return OutObject.success();
+        sourceCache.flush();
+        return OutObject.success("保存成功");
     }
 }

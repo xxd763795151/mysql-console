@@ -2,8 +2,13 @@ package com.xuxd.mysql.console.config;
 
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.bootstrap.BootstrapCacheLoader;
+import net.sf.ehcache.bootstrap.BootstrapCacheLoaderFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+
+import java.util.Properties;
 
 /**
  * @Auther: 许晓东
@@ -15,16 +20,26 @@ public class EhcacheConfig {
 
     @Bean("cacheManager")
     public CacheManager cacheManager() {
-        return CacheManager.create();
+        final CacheManager cacheManager = CacheManager.create();
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                cacheManager.shutdown();
+            }
+        }));
+        return cacheManager;
     }
 
     @Bean("sourceCache")
+    @DependsOn("cacheManager")
     public Cache sourceCache() {
         return cacheManager().getCache("sourceCache");
     }
 
     @Bean("connectionCache")
+    @DependsOn("cacheManager")
     public Cache connectionCache() {
         return cacheManager().getCache("connectionCache");
     }
+
 }

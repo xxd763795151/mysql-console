@@ -15,17 +15,15 @@ public class SourceInfo implements Serializable {
     int port;
     String pass;
     String name;
-    boolean save;
 
     public SourceInfo() {
     }
 
-    public SourceInfo(String ip, int port, String pass, String name, boolean save) {
+    public SourceInfo(String ip, int port, String pass, String name) {
         this.ip = ip;
         this.port = port;
         this.pass = pass;
         this.name = name;
-        this.save = save;
     }
 
     public String getIp() {
@@ -60,14 +58,6 @@ public class SourceInfo implements Serializable {
         this.name = name;
     }
 
-    public boolean isSave() {
-        return save;
-    }
-
-    public void setSave(boolean save) {
-        this.save = save;
-    }
-
     @Override
     public String toString() {
         return "SourceInfo{" +
@@ -75,7 +65,6 @@ public class SourceInfo implements Serializable {
                 ", port=" + port +
                 ", pass='" + pass + '\'' +
                 ", name='" + name + '\'' +
-                ", save=" + save +
                 '}';
     }
 }
