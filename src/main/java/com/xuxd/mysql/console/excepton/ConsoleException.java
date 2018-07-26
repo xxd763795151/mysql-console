@@ -7,7 +7,7 @@ package com.xuxd.mysql.console.excepton;
  */
 public class ConsoleException extends RuntimeException {
 
-    private String code;
+    protected String code;
     protected String message;
     protected Throwable cause;
 
@@ -58,5 +58,15 @@ public class ConsoleException extends RuntimeException {
         this.cause = cause;
     }
 
+    @Override
+    public String toString() {
+        return "ConsoleException{" +
+                "code='" + code + '\'' +
+                ", message='" + message + '\'' +
+                '}';
+    }
 
+    public String toJsonString() {
+        return "{\"returnCode\":\"" + code + "\",\"returnMessage\":\"" + message + "\"}";
+    }
 }

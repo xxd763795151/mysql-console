@@ -20,11 +20,11 @@ public class ExceptionHandle {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public String handle(Exception e) {
-        LOGGER.error("", e);
+        LOGGER.error("异常信息", e);
         if (e instanceof ConsoleException) {
-            return e.getMessage();
+            return ((ConsoleException) e).toJsonString();
         } else {
-            return "error";
+            return new ConsoleException("-9999", "未知错误：" + e.getMessage()).toJsonString();
         }
     }
 }

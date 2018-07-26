@@ -17,6 +17,9 @@ public class SourceInfo implements Serializable {
     String name;
     boolean save;
 
+    public SourceInfo() {
+    }
+
     public SourceInfo(String ip, int port, String pass, String name, boolean save) {
         this.ip = ip;
         this.port = port;

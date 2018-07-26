@@ -1,6 +1,7 @@
 package com.xuxd.mysql.console.service;
 
 import com.xuxd.mysql.console.bean.SourceInfo;
+import com.xuxd.mysql.console.common.OutObject;
 
 /**
  * @Auther: 许晓东
@@ -9,5 +10,5 @@ import com.xuxd.mysql.console.bean.SourceInfo;
  */
 public interface ISourceManager {
 
-    public void save(SourceInfo info) throws Exception;
+    OutObject save(SourceInfo info) throws Exception;
 }

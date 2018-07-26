@@ -19,7 +19,7 @@ function addMysqlConnectioinInfo() {
         contentType:"application/x-www-form-urlencoded; charset=UTF-8",
         data: data,
         success: function (response) {
-            alert("添加成功");
+            alert(response.returnMessage);
             $("#db_source_add_model").modal('toggle');
         },
         error: function (response) {
