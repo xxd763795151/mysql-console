@@ -9,6 +9,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -28,6 +30,7 @@ import java.util.Map;
 @Component
 public class DiskPersistentAspect {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DiskPersistentAspect.class);
 
     @Resource(name = "sourceCache")
     private Cache sourceCache;
@@ -48,10 +51,14 @@ public class DiskPersistentAspect {
         Map<Object, Element> map = sourceCache.getAll(keys);
         JSONObject json = JSONObject.fromObject(map);
         File file = new File(Constants.BAK_PATH);
-        FileUtils.forceDeleteOnExit(file);
+        //FileUtils.forceDeleteOnExit(file);
+        if (file.exists()) {
+            FileUtils.forceDelete(file);
+        }
         FileUtils.touch(file);
-        Writer writer = new FileWriter(file);
-        json.write(writer);
-        writer.close();
+        try (Writer writer = new FileWriter(file);) {
+            json.write(writer);
+        }
+        LOGGER.info("刷新缓存到磁盘，路径{}", Constants.BAK_PATH);
     }
 }
