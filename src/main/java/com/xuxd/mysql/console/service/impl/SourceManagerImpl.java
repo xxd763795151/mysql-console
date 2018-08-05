@@ -1,5 +1,7 @@
 package com.xuxd.mysql.console.service.impl;
 
+import com.xuxd.mysql.console.annotation.DiskPersistent;
+import com.xuxd.mysql.console.annotation.PersistentType;
 import com.xuxd.mysql.console.bean.SourceInfo;
 import com.xuxd.mysql.console.common.OutObject;
 import com.xuxd.mysql.console.excepton.ConsoleException;
@@ -23,6 +25,7 @@ public class SourceManagerImpl implements ISourceManager {
     Cache sourceCache;
 
     @Override
+    @DiskPersistent(PersistentType.SAVE)
     public OutObject save(SourceInfo info) throws Exception {
         Element element = new Element(info.getName(), info);
         Element result = sourceCache.putIfAbsent(element);

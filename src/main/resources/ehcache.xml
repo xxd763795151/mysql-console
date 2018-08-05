@@ -1,7 +1,8 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
 
-    <diskStore path="user.dir/cache"/>
+    <diskStore path="java.io.tmpdir/cache"/>
+    <!--<diskStore path="user.dir/cache"/>-->
 
     <!-- 如果遇到回收采用LRU算法-->
     <cache name="connectionCache"
@@ -19,9 +20,10 @@
            eternal="true"
            maxEntriesLocalHeap="0"
            maxElementsInMemory="0"
-           diskPersistent="true"
-           overflowToDisk="true"
-    />
+           diskPersistent="false"
+           overflowToDisk="true">
+        <bootstrapCacheLoaderFactory class="com.xuxd.mysql.console.config.SourceCacheBootstrapCacheLoaderFactory"/>
+    </cache>
 
 
     <!-- maxEntriesLocalHeap：堆内存中最大缓存对象数，0没有限制 -->

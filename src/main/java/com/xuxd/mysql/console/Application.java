@@ -3,6 +3,7 @@ package com.xuxd.mysql.console;
 import com.xuxd.mysql.console.annotation.EnableEhcache;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @Auther: 许晓东
@@ -12,10 +13,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableEhcache
+@EnableAspectJAutoProxy
 public class Application {
 
     public static void main(String[] args) {
-        System.setProperty(net.sf.ehcache.CacheManager.ENABLE_SHUTDOWN_HOOK_PROPERTY,"true");
+        //System.setProperty(net.sf.ehcache.CacheManager.ENABLE_SHUTDOWN_HOOK_PROPERTY,"true");
         SpringApplication.run(Application.class, args);
     }
 }
